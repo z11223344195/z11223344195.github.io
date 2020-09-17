@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex practice</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #75CDE8;
+            font-family: Microsoft JhengHei;
+        }
+
+        .bk-no-repeat {
+            background-repeat: no-repeat;
+        }
+
+        .bk-position {
+            background-position: center;
+        }
+
+        .position-relative {
+            position: relative;
+        }
+
+        #bar {
+            background-color: #FFE78A;
+            width: 100%;
+            height: 95px;
+            padding: 5px 0;
+
+
+        }
+
+        #logo {
+            /* background-color: darkcyan; */
+            width: 120px;
+            height: 85px;
+            margin: auto;
+            background-image: url(https://thumbs.gfycat.com/BoringImpassionedHoneyeater-small.gif);
+            background-position: center;
+            background-size: 90%;
+
+        }
+
+        #banner {
+            background-color: #75CDE8;
+            width: 100%;
+            height: 760px;
+            background-image: url(https://pbs.twimg.com/media/EaDBwFXVcAAXr65.jpg);
+            background-position: center;
+            background-size: 110vw;
+            background-repeat: no-repeat;
+        }
+
+        nav {
+            background-color: #FFE78A;
+            width: 100%;
+            height: 110px;
+            display: flex;
+            justify-content: center;
+
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 99;
+
+        }
+
+        nav ul {
+            margin: 0;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+
+
+
+        }
+
+        nav ul li {
+            background-color: #75CDE8;
+            list-style: none;
+            margin: 0 50px;
+            width: 150px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(12, 9, 156);
+            font-weight: 900;
+        }
+
+        nav ul li a::after {
+            background-color: rgb(12, 9, 156);
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 4px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 0.5s;
+        }
+
+        nav ul li a:hover::after {
+            width: 75%;
+
+        }
+
+
+
+        .container {
+            /* background-color: darkgrey; */
+            width: 1280px;
+            height: 100%;
+            margin: auto;
+
+
+        }
+
+        .title {
+            background-color: wheat;
+            width: 100%;
+            height: 45px;
+            position: absolute;
+            top: 130px;
+
+        }
+
+        .title-img-01 {
+            /* background-color: pink; */
+            width: 120px;
+            height: 80px;
+            margin: 0 0 0 23%;
+            position: absolute;
+            top: -20px;
+            background-image: url("https://media.giphy.com/media/KZwaIIz48b8w9Az3L5/giphy.gif");
+            background-position: center;
+            background-size: 80%;
+            background-repeat: no-repeat;
+
+        }
+
+        .title-img-02 {
+            /* background-color: pink; */
+            width: 120px;
+            height: 80px;
+            margin: 0 0 0 67%;
+            position: absolute;
+            top: -20px;
+            background-image: url("https://media.giphy.com/media/KZwaIIz48b8w9Az3L5/giphy.gif");
+            background-position: center;
+            background-size: 80%;
+            background-repeat: no-repeat;
+
+        }
+
+        .title-text {
+            background-color: pink;
+            width: 200px;
+            height: 100px;
+            margin: 0 calc(50% - 100px) 0 0;
+            position: absolute;
+            right: 0;
+            top: -27px;
+            font-family: Comic Sans MS;
+            line-height: 50px;
+            text-align: center;
+            font-size: 22px;
+            
+            
+
+
+        }
+
+        #section-00 {
+            background-color: white;
+            width: 100%;
+            position: relative;
+            padding: 300px 0px 80px 0;
+
+
+        }
+
+        #section-00 .title-text {
+            width: 300px;
+            margin: 0 calc(50% - 150px) 0 0;
+            background-image: url("https://pa1.narvii.com/6412/05f90cd5b22b6ec4b0c2db85ea9d7b50c154ec20_00.gif");
+            background-size: 68%;
+
+        }
+
+        #video-box {
+            width: 800px;
+            height: 450px;
+            border: 0;
+            margin: 0 0 0 calc(50% - 400px);
+            -webkit-box-shadow: 6px 7px 21px -2px rgba(0, 0, 0, 0.52);
+            -moz-box-shadow: 6px 7px 21px -2px rgba(0, 0, 0, 0.52);
+            box-shadow: 6px 7px 21px -2px rgba(0, 0, 0, 0.52);
+
+
+        }
+
+        #section-01 {
+            background-color: white;
+            width: 100%;
+            height: 900px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 130px 0 0 0;
+
+
+        }
+
+        #author {
+            /* background-color: deepskyblue; */
+            width: 400px;
+            height: 400px;
+            margin: 0 80px 0 0;
+            background-image: url("https://img.appledaily.com.tw/images/twapple/640pix/20180225/LA08/LA08_003.jpg");
+            background-size: 80%;
+
+
+        }
+
+        #author-text {
+            background-color: powderblue;
+;
+            width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 20;
+
+        }
+
+        #s01-img {
+            background-color: cornflowerblue;
+            width: 180px;
+            height: 180px;
+            align-self: flex-end;
+            margin: 0 0 100px 0;
+            background-image: url("https://truth.bahamut.com.tw/s01/201610/38b41a53fb5705b2bcab63b9eb3304df.GIF");
+            background-position: center;
+            background-size: 180%;
+            background-repeat: no-repeat;
+
+
+        }
+
+
+        .parallax {
+
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .parallax-bar {
+            background-color: #FFE78A;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        #section-02 {
+            background-color: white;
+            width: 100%;
+            height: 700px;
+            background-image: url("https://i.pinimg.com/originals/4d/1d/25/4d1d25e24de8f265387a374bb077a549.jpg");
+        }
+
+        #parallax-img-01 {
+            /* background-color: pink; */
+            width: 200px;
+            height: 100%;
+            background-image: url("https://media.giphy.com/media/Xxq7xGRiH0asGf5PXD/giphy.gif");
+            background-size: 50%;
+        }
+
+        #parallax-text {
+            background-color: pink;
+            width: 500px;
+            height: 100%;
+            margin: 0 100px;
+        }
+
+        #parallax-img-02 {
+            /* background-color: pink; */
+            width: 200px;
+            height: 100%;
+            background-image: url("https://media.giphy.com/media/Xxq7xGRiH0asGf5PXD/giphy.gif");
+            background-size: 50%;
+
+        }
+
+        #section-03 {
+            background-color: white;
+            width: 100%;
+            /* height: 790px; */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* flex-wrap: wrap; */
+            flex-direction: column;
+
+
+
+
+        }
+
+
+
+        #capoo-id {
+            background-color: powderblue;
+;
+            /* width: 600px; */
+            padding: 20px;
+            text-align: center;
+            margin: 300px 0 0px 0;
+
+        }
+
+        #section-03 h2 {
+            text-align: center;
+        }
+
+        #capoo-id-img-box {
+            /* background-color: cadetblue; */
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        #capoo-id-img-01,
+        #capoo-id-img-02,
+        #capoo-id-img-03 {
+            /* background-color: darkseagreen; */
+            width: 220px;
+            height: 80%;
+        }
+
+        #capoo-id-img-01 {
+            background-image: url("https://truth.bahamut.com.tw/s01/201610/fb7684eea93b512a02c38cfe7b6431e4.GIF");
+            background-size: 150%;
+        }
+
+        #capoo-id-img-02 {
+            background-image: url("https://img.doutuwang.com/0073ob6Pgy1g26095hwv4g30dc0a0kjl.gif");
+            background-size: 130%;
+        }
+
+        #capoo-id-img-03 {
+            background-image: url("https://media.giphy.com/media/jTAkn6hKyy2esWjOOZ/giphy.gif");
+            background-size: 100%;
+        }
+
+        #section-04 {
+            background-color: white;
+            width: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+
+        }
+
+        .id-box {
+            /* background-color: #FFE78A; */
+            width: 800px;
+            min-height: 150px;
+            display: flex;
+            margin: 0 0 120px 0;
+
+
+        }
+
+        .id-img {
+            /* background-color: plum; */
+            width: 200px;
+            height: 250px;
+            margin: 0 70px 0 0;
+
+        }
+
+        .id-text {
+            background-color: powderblue;
+            width: 500px;
+            min-height: 150px;
+            padding: 10px 20px;
+            border-radius: 5px;
+
+        }
+
+        #section-04 #dog-id {
+            margin: 350px 0 120px 0;
+        }
+
+        #dog-id .id-img {
+            background-image: url("data:image/jpeg;base64,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");
+
+        }
+
+        #lala-id .id-img {
+            background-image: url("https://st2.ilvs.ilc.edu.tw/~s514085/img/capoo-2.jpg");
+            background-size: 46%;
+        }
+
+        #milkcat-id .id-img {
+            background-image: url("https://stickershop.line-scdn.net/stickershop/v1/product/1257466/LINEStorePC/main.png;compress=true");
+            background-size: 85%;
+        }
+
+        #mewka-id .id-img {
+            background-image: url("https://st2.ilvs.ilc.edu.tw/~s514085/img/capoo-5.jpg");
+            background-size: 95%;
+
+        }
+
+        #chick-id .id-img {
+            background-image: url("https://i.pinimg.com/236x/b8/8f/88/b88f882fa9b7d66e3268725ff85b5549.jpg");
+            background-size: 95%;
+        }
+
+        #rabbit-id .id-img {
+            background-image: url("https://st2.ilvs.ilc.edu.tw/~s514085/img/capoo-7.jpg");
+            background-size: 90%;
+        }
+
+        #dinosaur-id .id-img {
+            background-image: url("https://st2.ilvs.ilc.edu.tw/~s514085/img/capoo-6.jpg");
+            background-size: 90%;
+        }
+
+
+        #section-05 {
+            background-color: aquamarine;
+            width: 100%;
+            height: 400px;
+            background-image: url("https://i.pinimg.com/originals/69/c5/d7/69c5d75597e98f9dcd1c992deed0bd3f.jpg");
+            background-size: 100%;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+
+
+
+        }
+
+        #parallax-img-03 {
+            /* background-color: pink; */
+            width: 200px;
+            height: 100%;
+            margin: 0 80px;
+            background-image: url("https://i.pinimg.com/originals/2f/f1/80/2ff18011be5808ddcb95975e20221203.gif");
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #section-06 {
+            background-color: white;
+            width: 100%;
+
+            position: relative;
+            padding: 240px 0 0 0;
+        }
+
+
+        #more-img-box-01 {
+            /* background-color: grey; */
+            width: 100%;
+            height: 750px;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+
+        }
+
+        #more-img-01,
+        #more-img-03,
+        #more-img-05,
+        #more-img-07 {
+            background-color: rgb(135, 152, 248);
+            width: 250px;
+            height: 300px;
+            position: absolute;
+            border-radius: 10px;
+            transition: 0.5s;
+
+        }
+
+        #more-img-02,
+        #more-img-04,
+        #more-img-06,
+        #more-img-08 {
+            background-color: powderblue;
+            width: 250px;
+            height: 300px;
+            position: absolute;
+            border-radius: 10px;
+            transition: 0.5s;
+
+        }
+
+        #more-img-01 {
+            top: 60px;
+            left: 60px;
+            background-image: url("https://i.pinimg.com/originals/1a/47/9a/1a479ad74499bd5404f91575cabd6295.gif");
+            background-size: 95%;
+
+
+        }
+
+        #more-img-02 {
+            top: 155px;
+            left: 160px;
+            background-image: url("https://i.pinimg.com/originals/ed/af/dc/edafdcfa667f1b0772a0a53d074b5cae.gif");
+            background-size: 95%;
+
+
+        }
+
+        #more-img-03 {
+            top: 250px;
+            left: 260px;
+            background-image: url("https://media.giphy.com/media/KB1GG8B346PxkRwc6B/giphy.gif");
+            background-size: 95%;
+
+        }
+
+        #more-img-04 {
+            top: 350px;
+            left: 360px;
+            background-image: url("https://media.giphy.com/media/h5WUsjFmE6329tkcAz/giphy.gif");
+            background-size: 95%;
+
+        }
+
+        #more-img-05 {
+            top: 350px;
+            left: 710px;
+            background-image: url("https://media.giphy.com/media/5QMKspne3I3yOk40fl/giphy.gif");
+            background-size: 95%;
+
+        }
+
+        #more-img-06 {
+            top: 250px;
+            left: 815px;
+            background-image: url("https://media.giphy.com/media/4N99JtCB4RKJsqt6rJ/giphy.gif");
+            background-size: 95%;
+
+        }
+
+        #more-img-07 {
+            top: 155px;
+            left: 900px;
+            background-image: url("https://media.giphy.com/media/9PwWklO9tSELtIhBka/giphy.gif");
+            background-size: 95%;
+
+        }
+
+        #more-img-08 {
+            top: 60px;
+            left: 985px;
+            background-image: url("https://media.giphy.com/media/xBzJL8IAjDktZywKee/giphy.gif");
+            background-size: 95%;
+
+        }
+
+        #more-img-01:hover,
+        #more-img-02:hover,
+        #more-img-03:hover,
+        #more-img-04:hover,
+        #more-img-05:hover,
+        #more-img-06:hover,
+        #more-img-07:hover,
+        #more-img-08:hover {
+            width: 270px;
+            height: 310px;
+        }
+
+
+
+        #ipt1:checked~#more-img-01 {
+            /* width: 20%; */
+            z-index: 5;
+            border: blueviolet 3px dashed;
+        }
+
+        #ipt2:checked~#more-img-02 {
+            z-index: 5;
+            border: rgb(43, 116, 226) 3px dashed;
+
+        }
+
+        #ipt3:checked~#more-img-03 {
+            /* width: 20%; */
+            z-index: 5;
+            border: blueviolet 3px dashed;
+        }
+
+        #ipt4:checked~#more-img-04 {
+            z-index: 5;
+            border: rgb(43, 116, 226) 3px dashed;
+
+        }
+
+        #ipt5:checked~#more-img-05 {
+            /* width: 20%; */
+            z-index: 5;
+            border: blueviolet 3px dashed;
+        }
+
+        #ipt6:checked~#more-img-06 {
+            z-index: 5;
+            border: rgb(43, 116, 226) 3px dashed;
+
+        }
+
+        #ipt7:checked~#more-img-07 {
+            /* width: 20%; */
+            z-index: 5;
+            border: blueviolet 3px dashed;
+        }
+
+        #ipt8:checked~#more-img-08 {
+            z-index: 5;
+            border: rgb(43, 116, 226) 3px dashed;
+
+        }
+
+
+        input {
+            opacity: 0;
+            position: absolute;
+
+        }
+
+        #section-07 {
+            background-color: white;
+            width: 100%;
+            /* height: 800px; */
+            position: relative;
+            padding: 300px 0 0 0;
+
+        }
+
+        #adress {
+            /* background-color: silver; */
+            padding: 10px 0px 10px 65px;
+
+
+
+
+        }
+
+        #img-zone {
+            /* background-color: thistle; */
+            width: 100%;
+            height: 500px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #house-img {
+            background-color: sandybrown;
+            width: 50%;
+            height: 100%;
+            -webkit-box-shadow: 10px 9px 17px -8px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 10px 9px 17px -8px rgba(0, 0, 0, 0.75);
+            box-shadow: 10px 9px 17px -8px rgba(0, 0, 0, 0.75);
+
+            background-image: url("https://cdn2.ettoday.net/images/3819/3819892.jpg");
+        }
+
+        #map {
+            background-color: tan;
+            width: 35%;
+            height: 100%;
+            -webkit-box-shadow: 10px 9px 17px -8px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 10px 9px 17px -8px rgba(0, 0, 0, 0.75);
+            box-shadow: 10px 9px 17px -8px rgba(0, 0, 0, 0.75);
+
+
+        }
+
+        #more-information {
+            margin: 50px 0 0 0;
+            padding: 10px 0 10px 65px;
+
+
+        }
+
+        .span {
+            /* background-color: brown; */
+            width: 80%;
+            height: 20px;
+            border-bottom: dotted black 2px;
+        }
+
+        #gotop {
+            /* background-color: deepskyblue; */
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 30px;
+            right: 25px;
+            background-image: url("https://userscontent2.emaze.com/images/bd9c2951-2703-44ef-ac8e-75c2658ceda5/fdc3d0fcebd7ef7c778517b70a16bdc3.png");
+            background-position: center;
+            background-size: 120%;
+            background-repeat: no-repeat;
+            z-index: 10;
+
+
+        }
+
+        footer {
+            background-color: #FFE78A;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0 0 0;
+
+        }
+
+
+        @media(max-width:1280px) {
+            .container {
+                width: 960px;
+            }
+
+            #banner {
+                height: 460px
+            }
+
+            .title-img-01 {
+                margin: 0 0 0 19%;
+            }
+
+            .title-img-02 {
+                margin: 0 0 0 70%;
+            }
+
+            nav ul li {
+                margin: 0 50px;
+                width: 120px;
+                height: 60px;
+
+            }
+
+            #author {
+                width: 380px;
+                height: 380px;
+                margin: 0 80px 0 0;
+            }
+
+            #author-text {
+                width: 600px;
+                padding: 20px;
+            }
+
+            #s01-img {
+                background-color: cornflowerblue;
+                width: 200px;
+                height: 180px;
+                align-self: flex-end;
+                margin: 0 0 32px -65px;
+            }
+
+            #section-02 {
+                width: 100%;
+                height: 550px;
+
+            }
+
+            #parallax-img-03 {
+                width: 200px;
+                height: 100%;
+                margin: 0 45px;
+            }
+
+            #parallax-img-03:last-child {
+                width: 0;
+                height: 0;
+            }
+
+            #zone-05 .parallax-bar {
+                padding: 0 0 0 90px;
+            }
+
+            #more-img-box-01 {
+                height: 950px;
+                display: flex;
+                flex-wrap: wrap;
+                align-content: space-around;
+                justify-content: space-around;
+
+            }
+
+            #more-img-01,
+            #more-img-03,
+            #more-img-05,
+            #more-img-07,
+            #more-img-09,
+            #more-img-11 {
+                width: 210px;
+                height: 270px;
+
+            }
+
+
+
+            #more-img-02,
+            #more-img-04,
+            #more-img-06,
+            #more-img-08,
+            #more-img-10,
+            #more-img-12 {
+                width: 210px;
+                height: 270px;
+            }
+
+            #more-img-01:hover,
+            #more-img-02:hover,
+            #more-img-03:hover,
+            #more-img-04:hover,
+            #more-img-05:hover,
+            #more-img-06:hover,
+            #more-img-07:hover,
+            #more-img-08:hover {
+                width: 230px;
+                height: 300px;
+            }
+
+
+            #more-img-01 {
+                top: 440px;
+                left: 90px;
+
+            }
+
+            #more-img-02 {
+                top: 520px;
+                left: 220px;
+
+            }
+
+            #more-img-03 {
+                top: 600px;
+                left: 350px;
+
+
+            }
+
+            #more-img-04 {
+                top: 680px;
+                left: 470px;
+
+            }
+
+            #more-img-05 {
+                top: 350px;
+                left: 680px;
+
+            }
+
+            #more-img-06 {
+                top: 250px;
+                left: 555px;
+
+            }
+
+            #more-img-07 {
+                top: 155px;
+                left: 430px;
+
+            }
+
+            #more-img-08 {
+                top: 60px;
+                left: 300px;
+
+            }
+
+
+            #img-zone {
+                height: 400px;
+                display: flex;
+                justify-content: space-around;
+            }
+
+
+
+
+        }
+
+        @media(max-width:960px) {
+            .container {
+                width: 576px;
+            }
+
+            #bar {
+                height: 80px;
+            }
+
+            #logo {
+                width: 110px;
+                height: 75px;
+            }
+
+            #banner {
+                height: 460px;
+                /* background-size: 100%; */
+
+            }
+
+            nav {
+                height: 80px;
+
+            }
+
+            nav ul {
+                padding: 0;
+
+
+            }
+
+            nav ul li {
+                margin: 0 40px;
+                width: 135px;
+                height: 55px;
+                line-height: 55px;
+
+            }
+
+            #section-00 .title-text {
+                width: 250px;
+                height: 90px;
+                margin: 0 calc(50% - 125px) 0 0;
+                top: -18px;
+
+
+            }
+
+
+            #video-box {
+                width: 400px;
+                height: 320px;
+                border: 0;
+                margin: 0 0 0 calc(50% - 200px);
+
+            }
+
+            .title-img-01 {
+
+                width: 100px;
+                height: 60px;
+                margin: 0 0 0 10%;
+
+                top: -8px;
+
+            }
+
+            .title-img-02 {
+                width: 100px;
+                height: 60px;
+                margin: 0 0 0 76%;
+                top: -8px;
+
+            }
+
+            .title-text {
+                width: 180px;
+                height: 90px;
+                margin: 0 calc(50% - 100px) 0 0;
+                right: 0;
+                top: -24px;
+                line-height: 40px;
+
+            }
+
+            #section-01 {
+                height: unset;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                /* align-items: center; */
+                padding: 285px 0 0 0;
+            }
+
+            #section-01 .title-text{
+            font-size: 18px;
+            }
+
+            #author {
+                width: 250px;
+                height: 250px;
+                margin: 0 0 0 0;
+            }
+
+            #author-text {
+                width: 100%;
+                padding: 20px;
+                margin: 50px;
+                border-radius: 0;
+            }
+
+            #s01-img {
+                width: 170px;
+                height: 170px;
+                margin: 0 0 55px 0;
+
+            }
+
+            .parallax-bar {
+                height: 80px;
+                display: flex;
+                justify-content: center;
+
+            }
+
+            #section-02 {
+                height: 350px;
+            }
+
+            #parallax-img-01 {
+                width: 180px;
+                background-size: 70%;
+            }
+
+            #parallax-text {
+                width: 450px;
+                margin: 0 100px;
+            }
+
+            #parallax-img-02 {
+                width: 180px;
+                background-size: 70%;
+            }
+
+            #dog-id-box {
+                margin: 320px 0 120px 0;
+            }
+
+            #dog-id .id-img {
+                background-size: 125%;
+            }
+
+            #lala-id .id-img {
+                background-size: 80%;
+            }
+
+            .id-box {
+                width: 400px;
+                height: unset;
+                display: flex;
+                margin: 0 0 120px 0;
+
+
+            }
+
+            .id-img {
+                width: 35%;
+                margin: 0 30px 0 0;
+            }
+
+            .id-text {
+                width: 65%;
+
+
+            }
+
+            #section-05 {
+                width: 100%;
+                height: 350px;
+
+            }
+
+            #parallax-img-03 {
+                width: 130px;
+                margin: 0 30px;
+                background-size: 60%;
+
+            }
+
+            #zone-05 .parallax-bar {
+                padding: 0 0 0 50px;
+
+            }
+
+            #more-img-01,
+            #more-img-03,
+            #more-img-05,
+            #more-img-07,
+            #more-img-09,
+            #more-img-11 {
+                width: 150px;
+                height: 220px;
+
+            }
+
+            #more-img-02,
+            #more-img-04,
+            #more-img-06,
+            #more-img-08,
+            #more-img-10,
+            #more-img-12 {
+                width: 150px;
+                height: 220px;
+            }
+
+            #more-img-01:hover,
+            #more-img-02:hover,
+            #more-img-03:hover,
+            #more-img-04:hover,
+            #more-img-05:hover,
+            #more-img-06:hover,
+            #more-img-07:hover,
+            #more-img-08:hover {
+                width: 180px;
+                height: 250px;
+            }
+
+
+            #more-img-01 {
+                top: 440px;
+                left: 15px;
+
+            }
+
+            #more-img-02 {
+                top: 520px;
+                left: 110px;
+
+            }
+
+            #more-img-03 {
+                top: 600px;
+                left: 210px;
+
+
+            }
+
+            #more-img-04 {
+                top: 60px;
+                left: 135px;
+                z-index: 2;
+
+            }
+
+            #more-img-05 {
+                top: 350px;
+                left: 405px;
+
+            }
+
+            #more-img-06 {
+                top: 250px;
+                left: 320px;
+
+            }
+
+            #more-img-07 {
+                top: 155px;
+                left: 240px;
+
+            }
+
+            #more-img-08 {
+                top: 680px;
+                left: 310px;
+
+            }
+
+            #section-07 {
+                padding: 270
+            }
+
+            #img-zone {
+                height: unset;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+
+
+            #house-img {
+                width: 100%;
+                height: 400px;
+                margin: 0 0 50px 0;
+
+
+            }
+
+            #map {
+                width: 100%;
+                height: 400px;
+
+            }
+
+
+
+        }
+
+        @media(max-width: 800px) {
+            .meun-btn {
+                /* background-color: deepskyblue; */
+                width: 65px;
+                height: 80%;
+                float: left;
+                margin: 8px 0 0 20px;
+                position: absolute;
+                top: -530px;
+                left: 0;
+                background-image: url("https://sdl-stickershop.line.naver.jp/stickershop/v1/sticker/231715472/android/sticker.png");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 100%;
+            }
+
+            .meun-btn:hover~ul {
+                display: block;
+            }
+
+            ul:hover {
+                display: block;
+            }
+
+            #banner {
+                background-size: 130vw;
+            }
+
+            nav {
+                width: 100%;
+                height: 80px;
+                display: flex;
+                justify-content: center;
+                position: relative;
+
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                padding: 0;
+                left: 0;
+                top: -460px;
+            }
+
+            nav ul li {
+                margin: 0;
+                border-radius: 0;
+                width: 150px;
+                height: 100px;
+                line-height: 100px;
+            }
+
+            #gotop {
+                width: 60px;
+                height: 60px;
+            }
+
+        }
+
+        @media(max-width:576px) {
+            .container {
+                width: 100%;
+            }
+
+            .meun-btn {
+                width: 65px;
+                height: 80%;
+                float: left;
+                margin: 8px 0 0 20px;
+                top: -420px;
+            }
+
+            #bar {
+                height: 75px;
+            }
+
+            #logo {
+                width: 130px;
+                height: 70px;
+                background-size: 70%;
+                background-repeat: no-repeat;
+            }
+
+            #banner {
+                height: 360px;
+                /* background-position: cover; */
+                background-size: 135vw;
+            }
+
+            nav {
+                width: 100%;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                position: relative;
+
+            }
+
+            nav ul {
+                position: absolute;
+                padding: 0;
+                left: 0;
+                top: -360px;
+                display: none;
+
+            }
+
+            nav ul li {
+                width: 150px;
+
+            }
+
+            .title {
+                top: 100px;
+                height: 35px;
+            }
+
+            #section-00 {
+                padding: 205px 0 20px 0;
+            }
+
+            #section-00 .title-text {
+                width: 200px;
+                height: 70px;
+                margin: 0 calc(50% - 100px) 0 0;
+                top: -18px;
+
+            }
+
+            .title-img-01 {
+                width: 80px;
+                height: 55px;
+                margin: 0 0 0 8%;
+                top: -8px;
+
+            }
+
+            .title-img-02 {
+                width: 80px;
+                height: 55px;
+                margin: 0 0 0 76%;
+                top: -8px;
+
+            }
+
+            .title-text {
+                width: 180px;
+                height: 85px;
+                margin: 0 calc(50% - 90px) 0 0;
+                right: 0;
+                top: -25px;
+
+            }
+
+            #s01-img {
+                margin: 0 0 50px 0;
+            }
+
+            #author-text {
+                margin: 15px 0;
+            }
+
+            #section-01 {
+                padding: 225px 0 0 0;
+
+            }
+
+            #video-box {
+                width: 400px;
+                height: 300px;
+                border: 0;
+                margin: 0 0 0 calc(50% - 200px);
+
+            }
+
+            .parallax-bar {
+                height: 70px;
+            }
+
+            #section-02 {
+                height: 70vw;
+                background-position: center;
+
+
+            }
+
+            #parallax-img-01 {
+                width: 125px;
+                background-size: 80%;
+            }
+
+            #parallax-text {
+                width: 280px;
+                margin: 0 50px;
+            }
+
+            #parallax-img-02 {
+                width: 125px;
+                background-size: 80%;
+
+            }
+
+            #capoo-id {
+                margin: 240px 0 0 0;
+            }
+
+            #capoo-id-img-box {
+                height: 200px;
+                margin: 0 0 50px 0;
+                justify-content: space-between;
+            }
+
+            #capoo-id-img-01,
+            #capoo-id-img-02,
+            #capoo-id-img-03 {
+                width: 140px;
+
+            }
+
+            .id-box {
+                width: 100%;
+                min-height: 400px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 0 120px 0;
+
+
+            }
+
+            .id-img {
+                width: 50%;
+                margin: 0 0 20px 0;
+            }
+
+            .id-text {
+                width: 100%;
+                min-height: 200px;
+                border-radius: 0;
+
+            }
+
+            #lala-id .id-img {
+                background-size: 50%;
+
+            }
+
+            #rabbit-id .id-img {
+                background-size: 80%;
+
+            }
+
+            #section-04 #dog-id {
+                margin: 250px 0 120px 0;
+
+            }
+
+            #section-05 {
+                width: 100%;
+                height: 70vw;
+
+
+            }
+
+            #parallax-img-03 {
+                width: 100px;
+                margin: 0 20px;
+
+            }
+
+            #zone-05 .parallax-bar {
+                padding: 0 0 0 0;
+
+            }
+
+            .parallax-bar #parallax-img-03:nth-child(1) {
+                width: 0;
+                height: 0;
+            }
+
+            #more-img-01,
+            #more-img-03,
+            #more-img-05,
+            #more-img-07,
+            #more-img-09,
+            #more-img-11 {
+                width: 150px;
+                height: 220px;
+
+            }
+
+            #more-img-02,
+            #more-img-04,
+            #more-img-06,
+            #more-img-08,
+            #more-img-10,
+            #more-img-12 {
+                width: 150px;
+                height: 220px;
+            }
+
+            #more-img-01 {
+                top: 760px;
+                left: 100px;
+                z-index: 1;
+
+
+            }
+
+            #more-img-02 {
+                top: 390px;
+                left: 320px;
+                z-index: 4;
+
+
+            }
+
+            #more-img-03 {
+                top: 560px;
+                left: 260px;
+                z-index: 3;
+
+
+            }
+
+            #more-img-04 {
+                top: 0px;
+                left: 25px;
+                z-index: 8;
+            }
+
+            #more-img-05 {
+                top: 265px;
+                left: 260px;
+                z-index: 5;
+
+
+            }
+
+            #more-img-06 {
+                top: 165px;
+                left: 190px;
+                z-index: 6;
+
+
+            }
+
+            #more-img-07 {
+                top: 75px;
+                left: 115px;
+                z-index: 7;
+
+
+            }
+
+            #more-img-08 {
+                top: 680px;
+                left: 190px;
+                z-index: 2;
+
+
+            }
+
+            #section-07 {
+                padding: 240px 0 0;
+            }
+
+            #img-zone {
+                width: 100%;
+                height: unset;
+                display: flex;
+                /* flex-direction: column; */
+                flex-wrap: wrap;
+                align-items: center;
+
+
+            }
+
+            #adress {
+                padding: 10px 0 10px 20px;
+            }
+
+            #house-img {
+                width: 100%;
+                height: 100vw;
+                margin: 0 0 30px 0;
+
+
+
+            }
+
+            #map {
+                width: 100%;
+                height: 400px;
+            }
+
+            #gotop {
+                width: 50px;
+                height: 50px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="bar">
+
+            <div id="logo"></div>
+        </div>
+        <div id="banner"></div>
+
+    </header>
+
+    <nav>
+        <div class="meun-btn"></div>
+        <ul>
+            <li><a href="#section-01">作者</a></li>
+            <li><a href="#section-03">我是咖波</a></li>
+            <li><a href="#section-04">咖波夥伴</a></li>
+            <li><a href="#section-06">更多咖波</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <div class="container">
+                <div id="section-00">
+                    <div class="title">
+                        <div class="title-text bk-position bk-no-repeat"></div>
+
+
+                    </div>
+                    <iframe id="video-box" src="https://www.youtube.com/embed/ur1PvE9DjsI"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div id="section-01">
+                    <div class="title">
+                        <div class="title-img-01"></div>
+                        <div class="title-text">
+                            <H1>Author 亞拉</H1>
+                        </div>
+                        <div class="title-img-02"></div>
+                    </div>
+                    <div id="author" class="bk-position bk-no-repeat"></div>
+                    <div id="author-text">
+                        <h3>亞拉</h3>
+                        <p>27歲的亞拉是「貓貓蟲-咖波」的創作者，也是Line 2017年的十大爆紅貼圖作者之一，他的Facebook專頁坐擁近60萬fans，除了紅遍台灣本土，海外fans也佔一半。</p>
+
+                        <p>亞拉原本修讀資訊管理相關學科，可是讀完後發覺志不在此，然後做過遊戲設計工作一年，便與朋友開設工作室接job，但收入卻不穩定。亞拉試過整個月只賺得幾千台幣，但花了5,000台幣交租後，生活已經捉襟見肘，卻仍要跟父母說「自己過得很好」。
+                        </p>
+
+                        <p>還好喜歡畫畫的亞拉一邊返工一邊堅持創作，更在2014年創出在Facebook廣受歡迎的「貓貓蟲-咖波」，在fans的熱烈要求下，他於同年10月製作出一組40張的貼圖放上Line「原創巿集」售賣，結果一炮而紅。
+                        </p>
+                    </div>
+                    <div id="s01-img"></div>
+
+                </div>
+
+            </div>
+        </section>
+        <section>
+            <div class="parallax-bar">
+                <div id="parallax-img-01" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-text" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-img-02" class="bk-position bk-no-repeat"></div>
+            </div>
+            <div id="section-02" class="parallax position-relative"></div>
+            <div class="parallax-bar">
+                <div id="parallax-img-01" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-text"></div>
+                <div id="parallax-img-02" class="bk-position bk-no-repeat"></div>
+            </div>
+
+
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div id="section-03">
+                    <div class="title">
+                        <div class="title-img-01"></div>
+                        <div class="title-text">
+                            <h1>CAPOO</h1>
+                        </div>
+                        <div class="title-img-02"></div>
+                    </div>
+                    <div id="capoo-id">
+                        <h2>我是咖波</h2>
+                        <p>生日2014年5月19日，外型頭部像貓身體像蟲的小怪物，毛皮是藍色，背上有三條紋路，平時有六隻腳，會依比例拉長而增多</p>
+                        <p>卵生，父母不詳</p>
+                        <p>極度肉食主義，身邊活著的任何小動物都會被抓來吃，但絕對不吃蔬菜，一吃就會吐出彩虹，似乎對巧克力免疫，一般貓貓不能吃巧克力</p>
+                        <p>被殺蟲劑噴到也會昏迷</p>
+                        <p>原本出生在野外，在一次寒流快被凍死的危機下被女主人拉拉撿回收養當寵物</p>
+                        <p>有時不乖或是做蠢事會被女主人拉拉揍</p>
+                        <p>生氣時會把敵人吃掉</p>
+                    </div>
+                    <div id="capoo-id-img-box">
+                        <div id="capoo-id-img-01" class="bk-no-repeat bk-position"></div>
+                        <div id="capoo-id-img-02" class="bk-no-repeat bk-position"></div>
+                        <div id="capoo-id-img-03" class="bk-no-repeat bk-position"></div>
+                    </div>
+
+                </div>
+        </section>
+        <section>
+            <div class="container">
+                <div id="section-04">
+                    <div class="title">
+                        <div class="title-img-01"></div>
+                        <div class="title-text">
+                            <h1>Partner</h1>
+                        </div>
+                        <div class="title-img-02"></div>
+
+                    </div>
+                    <div id="dog-id" class="id-box">
+                        <div class="id-img bk-no-repeat bk-position"></div>
+                        <div class="id-text">
+                            <h3>狗狗</h3>
+                            <p>雄性，毛皮為土黃色</p>
+                            <p>擁有強大的再生能力，被咖波咬掉頭，或是吃到剩一小塊肉渣都能再生並長出一個完整的身體</p>
+                            <p>在拉拉家非常萬能，只要他出手來做事都會的超完美</p>
+                        </div>
+                    </div>
+                    <div id="lala-id" class="id-box">
+                        <div class="id-img bk-no-repeat bk-position"></div>
+
+                        <div class="id-text">
+                            <h3>拉拉</h3>
+                            <p>女性，收養咖波跟狗狗的女主人，標準常見服裝是白色背心跟黃色熱褲</p>
+                            <p>很疼愛咖波跟狗狗，但是咖波如果不乖或是做壞事蠢事時會揍他</p>
+                            <p>力量驚人，可以把鉛球直接從地球砸到月球表面，或是徒手把外星人飛碟打下來</p>
+                            <p>咖波唯一打不過也不能吃的角色，反而他會把咖波吃掉</p>
+
+                        </div>
+                    </div>
+                    <div id="milkcat-id" class="id-box">
+                        <div class="id-img bk-no-repeat bk-position"></div>
+                        <div class="id-text">
+                            <h3>奶泡貓</h3>
+                            <p>在一次咖波製作拉花咖啡時不小心跑進去了貓蟲靈魂而產生的咖啡貓蟲</p>
+                            <p>咖啡種類為卡布奇諾，因為身體是液體，基本上要待在杯子裡</p>
+                            <p>喝牛奶會變強壯，討厭咖啡被做成「黑暗料理」</p>
+                        </div>
+                    </div>
+                    <div id="mewka-id" class="id-box">
+                        <div class="id-img bk-no-repeat bk-position"></div>
+                        <div class="id-text">
+                            <h3>咪卡</h3>
+                            <p>雌性，年紀比起咖波還要小的粉紅色貓蟲，毛髮比較蓬鬆，背上有兩條紋路，像是咖波妹妹一般的存在</p>
+                            <p>並不住在咖波家，而是住在野外，擁有四條舌頭做為捕食器官</p>
+                        </div>
+                    </div>
+                    <div id="chick-id" class="id-box">
+                        <div class="id-img bk-no-repeat bk-position"></div>
+                        <div class="id-text">
+                            <h3>小雞</h3>
+                            <p>數量眾多，圓球型黃色的雛雞</p>
+                            <p>常被咖波吃的糧食型角色，吃都吃不完，還能像黏土一樣搓合成一整隻</p>
+                            <p>似乎有少數個體可以長成一般公雞或一般母雞</p>
+                            <p>除了糧食，還可以被當作賭博籌碼，雨傘等用途</p>
+                        </div>
+                    </div>
+                    <div id="rabbit-id" class="id-box">
+                        <div class="id-img bk-no-repeat bk-position"></div>
+                        <div class="id-text">
+                            <h3>兔兔</h3>
+                            <p>雌性，深愛咖波到花癡程度的兔子，毛皮顏色是白底帶灰色</p>
+                            <p>被咖波吃或啃咬會很高興很舒服</p>
+                            <p>愛吃紅蘿蔔，有時會逼咖波吃</p>
+                        </div>
+                    </div>
+                    <div id="dinosaur-id" class="id-box">
+                        <div class="id-img bk-no-repeat bk-position"></div>
+                        <div class="id-text">
+                            <h3>暴龍姊姊</h3>
+                            <p>雌性，紅色的母暴龍，但是戰鬥力不高</p>
+                            <p>常常在各大商店打工</p>
+                            <p>平時跟咖波關係還不錯，不過如果牽涉到分肉吃的事情上例外</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="zone-05">
+            <div class="parallax-bar">
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+
+            </div>
+            <div id="section-05" class="bk-position bk-no-repeat"></div>
+            <div class="parallax-bar">
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+                <div id="parallax-img-03" class="bk-position bk-no-repeat"></div>
+            </div>
+
+
+        </section>
+        <section>
+            <div class="container">
+                <div id="section-06">
+                    <div class="title">
+                        <div class="title-img-01"></div>
+                        <div class="title-text">
+                            <h1>more</h1>
+                        </div>
+                        <div class="title-img-02"></div>
+                    </div>
+                    <div id="more-img-box-01">
+
+                        <input type="radio" name="fake-btn" id="ipt1">
+                        <input type="radio" name="fake-btn" id="ipt2">
+                        <input type="radio" name="fake-btn" id="ipt3">
+                        <input type="radio" name="fake-btn" id="ipt4">
+                        <input type="radio" name="fake-btn" id="ipt5">
+                        <input type="radio" name="fake-btn" id="ipt6">
+                        <input type="radio" name="fake-btn" id="ipt7">
+                        <input type="radio" name="fake-btn" id="ipt8">
+                        <input type="radio" name="fake-btn" id="ipt9">
+                        <input type="radio" name="fake-btn" id="ipt10">
+                        <input type="radio" name="fake-btn" id="ipt11">
+                        <input type="radio" name="fake-btn" id="ipt12">
+
+
+                        <label for="ipt1" id="more-img-01" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt2" id="more-img-02" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt3" id="more-img-03" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt4" id="more-img-04" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt5" id="more-img-05" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt6" id="more-img-06" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt7" id="more-img-07" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt8" id="more-img-08" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt9" id="more-img-09" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt10" id="more-img-10" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt11" id="more-img-11" class="bk-position bk-no-repeat"></label>
+                        <label for="ipt12" id="more-img-12" class="bk-position bk-no-repeat"></label>
+
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div id="section-07">
+                    <div class="title">
+                        <div class="title-img-01"></div>
+                        <div class="title-text">
+                            <h1>咖波屋</h1>
+                        </div>
+                        <div class="title-img-02"></div>
+                    </div>
+                    <div id="adress">
+                        <p>地址：台中市 西區模範街8巷23號</p>
+                        <p>營業時間：10:00~20:00</p>
+                        <p>公休：星期一</p>
+                        <p>店家FB：https://www.facebook.com/CapooHouse/</p>
+
+                    </div>
+                    <div id="img-zone">
+                        <div id="house-img" class="bk-position bk-no-repeat"></div>
+                        <iframe id="map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.6880948009652!2d120.66533371498909!3d24.147589484395144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d139804f0b7%3A0x41679c7cd9a4c599!2z5ZKW5rOi5bGL!5e0!3m2!1szh-TW!2stw!4v1599014362897!5m2!1szh-TW!2stw"
+                            width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+
+                    </div>
+
+                    <div id="more-information">
+                        <div class="span"></div>
+                        <p>[LINE]官方貼圖:</p>
+                        <a
+                            href="https://store.line.me/search/sticker/zh-Hant?q=%E5%92%96%E6%B3%A2&type=OFFICIAL">https://store.line.me/search/sticker/zh-Hant?q=%E5%92%96%E6%B3%A2&type=OFFICIAL</a>
+                        <p>[LINE]原創貼圖:</p>
+                        <a
+                            href="https://store.line.me/search/sticker/zh-Hant?q=%E5%92%96%E6%B3%A2&type=CREATORS">https://store.line.me/search/sticker/zh-Hant?q=%E5%92%96%E6%B3%A2&type=CREATORS</a>
+                        <p>[LINE]原創主題:</p>
+                        <a
+                            href="https://store.line.me/search/theme/zh-Hant?q=%E5%92%96%E6%B3%A2">https://store.line.me/search/theme/zh-Hant?q=%E5%92%96%E6%B3%A2</a>
+                        <p>[LINE]表情貼:</p>
+                        <a
+                            href="https://store.line.me/emojishop/product/5ad6f009040ab14a7b11d10a/zh-Hant">https://pse.is/vnqcv</a>
+                        <p>Bugcat Capoo Facebook</p>
+                        <a href="https://www.facebook.com/capoocat/">https://www.facebook.com/capoocat/</a>
+                        <p>Bugcat Capoo Instagram</p>
+                        <a href="https://www.instagram.com/BUGCAT_CAPOO/">https://www.instagram.com/BUGCAT_CAPOO/</a>
+                        </p>
+                        <p>Bugcat Capoo YOUTUBE</p>
+                        <a
+                            href="https://www.youtube.com/c/BugCatCapoo/about">https://www.youtube.com/c/BugCatCapoo/about</a>
+                        <div class="span"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <a href="#">
+            <div id="gotop">top</div>
+        </a>
+    </main>
+    <footer></footer>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
